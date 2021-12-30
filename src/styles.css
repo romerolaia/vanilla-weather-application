@@ -20,6 +20,9 @@ li {
   line-height: 20px;
 }
 
+a {
+  text-decoration: none;
+}
 .weather-application-wrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -28,7 +31,7 @@ li {
 .weather-application {
   padding: 20px;
   border: 1px solid #c3c5c7;
-  border-radius: 5px;
+  border-radius: 13px;
 }
 
 .app-overview {
