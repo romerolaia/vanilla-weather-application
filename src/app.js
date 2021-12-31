@@ -15,7 +15,23 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
+let date = new Date();
+let dateElement = document.querySelector("#date");
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[date.getDay()];
+let hour = date.getHours();
+let minute = date.getMinutes();
+dateElement.innerHTML = `${day}, ${hour}:${minute}`;
+
 let apiKey = "9089811745286b14b5b1117730d09f30";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=9089811745286b14b5b1117730d09f30&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Barcelona&appid=9089811745286b14b5b1117730d09f30&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
