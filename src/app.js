@@ -38,7 +38,19 @@ let hour = date.getHours();
 let minute = date.getMinutes();
 dateElement.innerHTML = `${day}, ${hour}:${minute}`;
 
-let apiKey = "9089811745286b14b5b1117730d09f30";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Barcelona&appid=9089811745286b14b5b1117730d09f30&units=metric`;
+function search(city) {
+  let apiKey = "9089811745286b14b5b1117730d09f30";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9089811745286b14b5b1117730d09f30&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Barcelona");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
