@@ -59,3 +59,12 @@ a {
   font-size: 18px;
   top: -19px;
 }
+
+.weather-temp .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.weather-temp .active:hover {
+  text-decoration: none;
+}
