@@ -40,6 +40,30 @@ let hour = date.getHours();
 let minute = date.getMinutes();
 dateElement.innerHTML = `${day}, ${hour}:${minute}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row"> `;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+         <img src="http://openweathermap.org/img/wn/01n@2x.png" alt=""
+            width="39"/>
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-max"> 11º </span>
+            <span class="weather-forecast-temperature-min"> 10º </span>
+            </div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function search(city) {
   let apiKey = "9089811745286b14b5b1117730d09f30";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9089811745286b14b5b1117730d09f30&units=metric`;
@@ -71,6 +95,7 @@ function displayCelsiusTemp(event) {
 }
 
 search("Barcelona");
+displayForecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
